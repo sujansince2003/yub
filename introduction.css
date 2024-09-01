@@ -1,0 +1,233 @@
+/* Add animations for the logo */
+@keyframes rotateZoom {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(360deg) scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.header-content .logo {
+    animation: rotateZoom 3s ease-in-out;
+    /* Ensure the logo doesn't overflow */
+    display: block;
+    margin: 0 auto;
+}
+.header-content .logo1 {
+    display: block;
+    margin: 0 auto;
+}
+
+
+@keyframes rotateAcrossScreen {
+    0% {
+        transform: rotate(0deg);
+        top: 10%;
+        left: 10%;
+        width: 80px;
+    }
+    50% {
+        transform: rotate(180deg);
+        top: 50%;
+        left: 50%;
+        width: 150px;
+        /* Optionally, you can add translate to move it around */
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        top: 10%;
+        left: 10%;
+        width: 80px;
+    }
+}
+
+@keyframes settleHeader {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.header {
+    position: relative;
+    background: #ff6600;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+    overflow: hidden; /* Ensure nothing overflows the header */
+}
+
+.logo {
+    position: absolute;
+    top: 4%;
+    left: 20%;
+    max-width: 100px;
+    animation: rotateAcrossScreen 5s linear forwards;
+}
+
+.logo1 {
+    position: absolute;
+    top: 0%;
+    left: 70%;
+    max-width: 200px;
+}
+/* Add this class to control settling animation after the first animation */
+.settle {
+    animation: settleHeader 1s ease-out forwards;
+}
+
+
+
+.header {
+    background: #ff6600;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center; /* Center aligns the header */
+    
+}
+
+.header-content {
+    display: flex; /* Flexbox to align logo and text horizontally */
+    align-items: center; /* Vertically centers logo and text */
+    justify-content: center; /* Center aligns the content horizontally */
+}
+
+.logo {
+    max-width: 170px; /* Adjust logo size as needed */
+    margin-right: 60px; /* Space between logo and header text */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Styles for the sidebar */
+.sidebar {
+    height: 100%;
+    width: 250px; /* Adjust width as needed */
+    position: fixed; /* Keeps the sidebar fixed on the screen */
+    top: 0;
+    left: -250px; /* Hide sidebar off-screen initially */
+    background-color: #000000; /* Dark background color for sidebar */
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    transition: 0.3s; /* Smooth transition effect */
+    padding-top: 60px; /* Space for content inside sidebar */
+    z-index: 1000; /* Ensure the sidebar is above other content */
+}
+
+.sidebar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    display: block;
+    transition: 0.3s; /* Smooth transition for link hover */
+}
+
+.sidebar a:hover {
+    background-color: #575757; /* Darken background on hover */
+}
+
+/* Styles for the sidebar toggle button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px; /* Position button near the top */
+    left: 20px; /* Position button near the left edge */
+    background-color: #ff6600; /* Button background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1001; /* Ensure the button is above the sidebar */
+    transition: 0.3s; /* Smooth transition effect for button */
+}
+
+.sidebar-toggle:hover {
+    background-color: #cc5200; /* Darker background on hover */
+}
+
+/* When sidebar is active */
+.sidebar.active {
+    left: 0; /* Slide the sidebar into view */
+}
+
+.main-content {
+    margin-left: 250px; /* Offset main content when sidebar is visible */
+    transition: margin-left 0.3s; /* Smooth transition effect */
+}
+
+.sidebar.active ~ .main-content {
+    margin-left: 0; /* Adjust margin when sidebar is visible */
+}
+
+.nav {
+    background: #444;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.about, .services, .contact {
+    padding: 40px 0;
+    text-align: center;
+    background: #fff;
+    margin-top: 10px;
+}
+
+.about h2, .services h2, .contact h2 {
+    font-size: 2rem;
+    color: #1e00ff;
+}
+
+.services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.services ul li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+
+/* Existing styles ... */
+
+.footer {
+    background: #ff6600;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 2px;
+    vertical-align: middle;
+}

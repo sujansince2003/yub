@@ -1,0 +1,426 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Add animations for the logo */
+@keyframes rotateZoom {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(360deg) scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.header-content .logo {
+    animation: rotateZoom 3s ease-in-out;
+    /* Ensure the logo doesn't overflow */
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes rotateAcrossScreen {
+    0% {
+        transform: rotate(0deg);
+        top: 10%;
+        left: 10%;
+        width: 80px;
+    }
+    50% {
+        transform: rotate(180deg);
+        top: 50%;
+        left: 50%;
+        width: 150px;
+        /* Optionally, you can add translate to move it around */
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        top: 10%;
+        left: 10%;
+        width: 80px;
+    }
+}
+
+@keyframes settleHeader {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.header {
+    position: relative;
+    background: #ff6600;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+    overflow: hidden; /* Ensure nothing overflows the header */
+}
+
+.logo {
+    position: absolute;
+    top: 7%;
+    left: 20%;
+    max-width: 100px;
+    animation: rotateAcrossScreen 5s linear forwards;
+}
+
+/* Add this class to control settling animation after the first animation */
+.settle {
+    animation: settleHeader 1s ease-out forwards;
+}
+
+
+
+.header {
+    background: #ff6600;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center; /* Center aligns the header */
+    
+}
+
+.header-content {
+    display: flex; /* Flexbox to align logo and text horizontally */
+    align-items: center; /* Vertically centers logo and text */
+    justify-content: center; /* Center aligns the content horizontally */
+}
+
+.logo {
+    max-width: 170px; /* Adjust logo size as needed */
+    margin-right: 60px; /* Space between logo and header text */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Styles for the sidebar */
+.sidebar {
+    height: 100%;
+    width: 200px; /* Adjust width as needed */
+    position: fixed; /* Keeps the sidebar fixed on the screen */
+    top: 0;
+    left: -250px; /* Hide sidebar off-screen initially */
+    background-color: #000000; /* Dark background color for sidebar */
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    transition: 0.3s; /* Smooth transition effect */
+    padding-top: 20px; /* Space for content inside sidebar */
+    z-index: 100; /* Ensure the sidebar is above other content */
+}
+
+.sidebar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    display: block;
+    transition: 0.3s; /* Smooth transition for link hover */
+}
+
+.sidebar a:hover {
+    background-color: #575757; /* Darken background on hover */
+}
+
+/* Styles for the sidebar toggle button */
+.sidebar-toggle {
+    position: hidden;
+    top: 0px; /* Position button near the top */
+    left: 0px; /* Position button near the left edge */
+    background-color: #ff6600; /* Button background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: auto; /* Ensure the button is above the sidebar */
+    transition: 0.3s; /* Smooth transition effect for button */
+}
+
+.sidebar-toggle:hover {
+    background-color: #cc5200; /* Darker background on hover */
+}
+
+/* When sidebar is active */
+.sidebar.active {
+    left: 0; /* Slide the sidebar into view */
+}
+
+.main-content {
+    margin-left: -250px; /* Offset main content when sidebar is visible */
+    transition: margin-left 0.3s; /* Smooth transition effect */
+}
+
+.sidebar.active ~ .main-content {
+    margin-left: 0; /* Adjust margin when sidebar is visible */
+}
+
+.nav {
+    background: #444;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.about, .services {
+    padding: 40px 0;
+    text-align: center;
+    background: #fff;
+    margin-top: 10px;
+}
+
+.about h2, .services h2 {
+    font-size: 2rem;
+    color: #1e00ff;
+}
+
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    color: #f9f9f9;
+
+}
+.services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.services ul li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #f9f9f9;
+}
+.photo-row {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Style for each photo */
+.photo-row img {
+    width: 100%; /* Ensures equal width */
+    height: auto; /* Maintains aspect ratio */
+    max-width: 20%; /* Limits each photo to 24% of the container width */
+    border-radius: 10%; /* Optional: adds rounded corners */
+    transition: transform 0.3s ease-in-out; /* Adds animation effect */
+}
+
+/* Animation on hover */
+.photo-row img:hover {
+    transform: scale(1.1); /* Scales up the image on hover */
+}
+
+.heartbeat {
+    width: 300px; /* Adjust the width as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    animation: heartbeat 1.5s infinite;
+    transform-origin: center center;
+}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    80% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Separator Container */
+.separator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Contact Section */
+.contact {
+    flex: 1;
+    text-align: center;
+    gap: 5px;
+}
+
+.contact .container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+}
+
+.contact p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Photo Section */
+.photo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 45%;
+}
+
+.photo-section img {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* Form Container */
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+    
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Existing styles ... */
+
+.footer {
+    background: #ff6600;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 10px;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.footer-links .social-icon {
+    width: 24px; /* Adjust icon size as needed */
+    height: 24px;
+    margin-right: 8px;
+}
+
+.footer-links span {
+    vertical-align: middle;
+}
+

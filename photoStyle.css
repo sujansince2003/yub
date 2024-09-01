@@ -1,0 +1,154 @@
+/* Styles for the sidebar */
+.sidebar {
+    height: 100%;
+    width: 250px; /* Adjust width as needed */
+    position: fixed; /* Keeps the sidebar fixed on the screen */
+    top: 0;
+    left: -250px; /* Hide sidebar off-screen initially */
+    background-color: #000000; /* Dark background color for sidebar */
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    transition: 0.3s; /* Smooth transition effect */
+    padding-top: 60px; /* Space for content inside sidebar */
+    z-index: 1000; /* Ensure the sidebar is above other content */
+}
+
+.sidebar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    display: block;
+    transition: 0.3s; /* Smooth transition for link hover */
+}
+
+.sidebar a:hover {
+    background-color: #575757; /* Darken background on hover */
+}
+
+/* Styles for the sidebar toggle button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px; /* Position button near the top */
+    left: 20px; /* Position button near the left edge */
+    background-color: #ff6600; /* Button background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1001; /* Ensure the button is above the sidebar */
+    transition: 0.3s; /* Smooth transition effect for button */
+}
+
+.sidebar-toggle:hover {
+    background-color: #cc5200; /* Darker background on hover */
+}
+
+/* When sidebar is active */
+.sidebar.active {
+    left: 0; /* Slide the sidebar into view */
+}
+
+.main-content {
+    margin-left: 250px; /* Offset main content when sidebar is visible */
+    transition: margin-left 0.3s; /* Smooth transition effect */
+}
+
+.sidebar.active ~ .main-content {
+    margin-left: 0; /* Adjust margin when sidebar is visible */
+}
+
+.nav {
+    background: #444;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.about, .services, .contact {
+    padding: 40px 0;
+    text-align: center;
+    background: #fff;
+    margin-top: 10px;
+}
+
+.about h2, .services h2, .contact h2 {
+    font-size: 2rem;
+    color: #1e00ff;
+}
+
+.services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.services ul li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+/* Container for the gallery */
+.gallery {
+    grid-template-columns: repeat(5, 1fr); /* Create 5 equal columns */
+    gap: 10px; /* Space between grid items */
+    padding: 10px; /* Padding around the gallery */
+}
+
+/* Individual gallery items */
+.gallery-item {
+    /* Constrain the size of each image */
+    max-width: 17px; /* Convert 45mm to pixels */
+    max-height: 17px; /* Convert 45mm to pixels */
+    overflow: hidden; /* Hide any overflow */
+}
+
+/* Style images within the gallery items */
+.gallery-item img {
+    width: 10%; /* Make image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below images */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 200px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for small screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for very small screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .gallery {
+        grid-template-columns: 1fr; /* 1 column for extra small screens */
+    }
+}
